@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1096292194139",
+    "project_id": "flash-chat-c195c",
+    "storage_bucket": "flash-chat-c195c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096292194139:android:aaed5c9eb2caef1f35ec7e",
+        "android_client_info": {
+          "package_name": "com.hydratech.new_flash_chat.new_flash_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM6xzQ9OuNT3YqyhswdiOlR09I2DtTTrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

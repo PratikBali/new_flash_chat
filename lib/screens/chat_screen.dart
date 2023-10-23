@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +58,7 @@ class _ChatScreenState extends State<ChatScreen> {
         _firestore.collection('messages').add({
           'text': messageText,
           'sender': loggedInUser.email,
+          'timestamp': DateTime.now()
         });
       },
       child: Text('Send', style: kSendButtonTextStyle),
@@ -114,12 +117,11 @@ class MessagesStream extends StatelessWidget {
             ),
           );
         }
-        final messages = snapshot.data?.docs.reversed;
+        final messages = snapshot.data?.docs.reversed; // _JsonQueryDocumentSnapshot
         List<MessageBubble> messageBubbles = [];
         for (var message in messages!) {
           final messageText = message.get('text');
           final messageSender = message.get('sender');
-
           final currentUser = loggedInUser.email;
 
           final messageBubble = MessageBubble(
@@ -127,7 +129,6 @@ class MessagesStream extends StatelessWidget {
             messageText,
             currentUser == messageSender,
           );
-
           messageBubbles.add(messageBubble);
         }
         return Expanded(
